@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e8301683.css",
+    "main.js": "/static/js/main.5531ce13.js",
+    "static/js/787.db295fe6.chunk.js": "/static/js/787.db295fe6.chunk.js",
+    "static/media/hjw.png": "/static/media/hjw.909e4ebde7991395d762.png",
+    "static/media/1.png": "/static/media/1.30d2ab3ce79632228de5.png",
+    "static/media/booked.png": "/static/media/booked.992e48760dcbf23541c6.png",
+    "static/media/payment-method.png": "/static/media/payment-method.0139bd3361395b0c118a.png",
+    "static/media/iphone.png": "/static/media/iphone.dd5dfd36661c41542100.png",
+    "static/media/index.cjs": "/static/media/index.87283f34b94ab8669cb4.cjs",
+    "static/media/help.png": "/static/media/help.a8e8c9084a717e80eabf.png",
+    "static/media/clock.png": "/static/media/clock.7a657895889bef1ed8d3.png",
+    "index.html": "/index.html",
+    "main.e8301683.css.map": "/static/css/main.e8301683.css.map",
+    "main.5531ce13.js.map": "/static/js/main.5531ce13.js.map",
+    "787.db295fe6.chunk.js.map": "/static/js/787.db295fe6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8301683.css",
+    "static/js/main.5531ce13.js"
+  ]
+}

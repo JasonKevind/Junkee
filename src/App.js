@@ -29,7 +29,7 @@ function App(){
   }) 
  },[DOMException])
  useEffect(()=>{
-  if(window.screen.orientation.angle===90||window.screen.orientation.angle===-90){
+  if(window.orientation===90||window.orientation===-90){
     document.getElementById("root").style.display="none";
     document.getElementById("disp").innerText="Please rotate the device";
   }
@@ -37,7 +37,7 @@ function App(){
  },[])
  useEffect(()=>{
   window.addEventListener("orientationchange",(e)=>{
-    if(window.screen.orientation.angle===90 || window.screen.orientation.angle===-90){
+    if(window.orientation===90 || window.orientation===-90){
       document.getElementById("root").style.display="none";
       document.getElementById("disp").innerText="Please rotate the device";
     }
