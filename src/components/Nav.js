@@ -31,9 +31,9 @@ useEffect(()=>{
     <div className="PD">
       <div className="LD">
           <div  style={{display:'flex',alignItems:'center',flexBasis:"45%"}}>
-                <div onClick={(e)=>nav("/")} style={{width:'22.5%',height:'55%',content:"url('junkie.jpg')",borderRadius:'100%'}}>
+                <div  style={{width:'22.5%',height:'55%',content:"url('junkie.jpg')",borderRadius:'100%'}}>
                 </div>
-                <p onClick={(e)=>nav("/")} style={{marginLeft:'3%',fontSize:'100%',fontWeight:800,color:"#586132",cursor:'pointer'}}>JUNKEE</p>
+                <p  style={{marginLeft:'3%',fontSize:'100%',fontWeight:800,color:"#586132"}}>JUNKEE</p>
           </div>
           <div  style={{display:'flex',alignItems:'center',justifyContent:'space-evenly',gap:10}}>
           <div id="blink" className='topbtns' style={{border:"1px solid #586132"}} onClick={()=>{

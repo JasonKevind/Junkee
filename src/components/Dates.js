@@ -160,7 +160,7 @@ export const Dates=()=>{
      
       (
                 <div style={{height:'25%',position:'relative',backgroundColor:'whitesmoke',display:'flex',flexDirection:'column',
-                top:"-8%",gap:5,transitionDelay:'2s'}}>
+                gap:5,transitionDelay:'2s'}}>
                 <div style={{display:'flex',flexDirection:'row',height:'45%',alignItems:'center'}}>
                     <div style={{display:'flex',fontSize:'78%'}}>
                      Address:{add}
@@ -173,9 +173,7 @@ export const Dates=()=>{
                           data["add1"]=add2;
                           setAdd(add2);
                         }
-                        else{
-                          setConfirm(false);
-                        }
+                       
                       }}>Change</p>
               
                     </div>

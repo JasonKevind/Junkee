@@ -41,7 +41,7 @@ export const Schedule=()=>{
     <div style={{flexGrow:1,display:'flex',flexDirection:'column'}}>
         { !obj && (<div><div id='recaptcha-container' />
         <button className='btnew' style={{width:90,padding:7.5}} onClick={async(e)=>{
-         
+           try{
             let dd=document.getElementById("number").value;
             if(dd.length===10){
         
@@ -65,7 +65,10 @@ export const Schedule=()=>{
            else{
             alert('Enter valid phone number of length 10')
            }
-        
+           }catch{
+            alert("You might have placed more than 8 orders, please try with another number...")
+            window.location.reload();   
+        }
         }}
            >NEXT</button>
         </div>)

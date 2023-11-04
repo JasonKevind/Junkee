@@ -86,10 +86,9 @@ export const OrderList = () => {
         }
         return '';
     }}
-    minDate={new Date(2023,9,26)}
-    maxDate={new Date().setDate(new Date().getDate() +4)}
+    minDate={new Date(2023,9,29)}
+    maxDate={new Date().setDate(new Date().getDate())}
 />
-
                 </div>
                 <div style={{ display: 'flex', flexDirection: "column", gap: 20, justifyContent: 'center' }}>
                    {sch.length?(
