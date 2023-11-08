@@ -2,27 +2,18 @@ import 'firebase/firestore';
 import'../App.css';
 import {RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import {auth,db} from '../firebase';
-import { collection, getDocs, query, where,updateDoc,getDoc,addDoc,doc } from 'firebase/firestore/lite';
+import { collection, getDocs, query, where} from 'firebase/firestore/lite';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Problems } from './problems';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect,  useState } from 'react';
 export const Schedule=()=>{
     const loc=useLocation();
     const nav=useNavigate();
     const [obj,setObj]=useState(false);
-    const [otp,setOtp]=useState();
-    const [name,setName]=useState("");
-    const [contact,setContact]=useState(()=>{
-        if(loc.state && loc.state.hasOwnProperty("contact"))
-        { 
-            return loc.state.contact;
-        }
-        return "";
-    });
     useEffect(()=>{
         if(loc.pathname==="/" && loc.state && Object.keys(loc.state).length===2 && loc.state.hasOwnProperty("contact"))document.getElementById("number").value=loc.state.contact;
     },[loc.pathname])
-    const check=async(el)=>{
+    const check=(el)=>{
         for(var i=0;i<el.length;i++){
             if(el[i]<'0' && el[i]>'9')
             {alert("Enter a valid phone number");return false;}
@@ -43,7 +34,7 @@ export const Schedule=()=>{
         <button className='btnew' style={{width:90,padding:7.5}} onClick={async(e)=>{
            try{
             let dd=document.getElementById("number").value;
-            if(dd.length===10){
+            if(dd.length===10 && check(dd)){
         
           const ll=new RecaptchaVerifier("recaptcha-container",{},auth);
           await ll.render();
@@ -75,5 +66,5 @@ export const Schedule=()=>{
     }
         <Problems />
     </div>
-</div>   
-    )}
+</div>
+)}

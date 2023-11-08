@@ -14,7 +14,7 @@ export const Reg=()=>{
         }
        },[])
        const first=[{text:"Schedule a Pickup"},{text:"PERSONAL INFO"}];
-       const second=[{info:"name",ct:1,type:"text",inp:"text",req:true},{info:"upiid",ct:2,type:"text",inp:"numeric",req:false},{info:"address",ct:3,type:"text",inp:"text",req:true},{info:"emailid",ct:4,type:"email",inp:"email",req:false},{info:"pincode",ct:5,type:"number",inp:"numeric",req:true}];
+       const second=[{info:"name",ct:1,type:"text",inp:"text",req:true},{info:"upiid",ct:2,type:"text",inp:"text",req:false},{info:"address",ct:3,type:"text",inp:"text",req:true},{info:"emailid",ct:4,type:"email",inp:"email",req:false},{info:"pincode",ct:5,type:"number",inp:"numeric",req:true}];
        return (
             <div className="PARENT">
                  <Back second={"OTP"} flexbasis={"100%"}/>

@@ -70,12 +70,12 @@ const other=[{link:"carr",data:"CAR",rate:"20000",pic:"1"},
                         <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',gap:'10%',width:'100%'}}>
                         { normalRec.map(it=>   
                             <div className='list'>
-                                    <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                                    <div style={{width:'clamp(50px,76%,98px)',display:'flex',alignItems:'center',justifyContent:'center'}}>
                                         <div style={{display:'flex',width:'92.5%',height:'100%',borderRadius:'10px',flexDirection:'column',backgroundColor:'whitesmoke',boxShadow:'3px 2.5px 3px 3px gray'}}>
                                             <div style={{display:'flex',height:'75%',alignItems:'center',justifyContent:'center'}}>
                                                 <img style={{width:'45%',height:'45%',objectFit:'fill',maxWidth:'37.5px',maxHeight:'30px'}} src={require(`../${it.link}.png`)}  loading='lazy' />
                                             </div>
-                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'70%',justifyContent:'center'}}>
+                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'60%',justifyContent:'center'}}>
                                                     Rs{it.rate}/{Object.keys(it).length===4?"PIECE":"Kg"}
                                             </div>
                                         </div>
@@ -95,12 +95,12 @@ const other=[{link:"carr",data:"CAR",rate:"20000",pic:"1"},
                         <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',gap:'10%',width:'100%'}}>
                         { large.map(it=>  
                             <div className='list'>
-                                    <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                                    <div style={{width:'clamp(60px,76.5%,98px)',display:'flex',alignItems:'center',justifyContent:'center'}}>
                                         <div style={{display:'flex',width:'92.5%',height:'100%',borderRadius:'10px',flexDirection:'column',backgroundColor:'whitesmoke',boxShadow:'3px 2.5px 3px 3px gray'}}>
                                             <div style={{display:'flex',height:'75%',alignItems:'center',justifyContent:'center'}}>
                                                 <img style={{width:'45%',height:'45%',objectFit:'fill'}} src={require(`../large/${it.link}.png`)}  loading='lazy' />
                                             </div>
-                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'70%',justifyContent:'center'}}>
+                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'60%',justifyContent:'center'}}>
                                                     Rs{it.rate}/{Object.keys(it).length===4?"PIECE":"Kg"}
                                             </div>
                                         </div>
@@ -120,12 +120,12 @@ const other=[{link:"carr",data:"CAR",rate:"20000",pic:"1"},
                         <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',gap:'10%',width:'100%'}}>
                         { small.map(it=>  
                             <div className='list'>
-                                    <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                                    <div style={{width:'clamp(60px,76.5%,98px)',display:'flex',alignItems:'center',justifyContent:'center'}}>
                                         <div style={{display:'flex',width:'92.5%',height:'100%',borderRadius:'10px',flexDirection:'column',backgroundColor:'whitesmoke',boxShadow:'3px 2.5px 3px 3px gray'}}>
                                             <div style={{display:'flex',height:'75%',alignItems:'center',justifyContent:'center'}}>
                                                 <img style={{width:'45%',height:'45%',objectFit:'fill'}} src={require(`../small/${it.link}.png`)}  loading='lazy' />
                                             </div>
-                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'70%',justifyContent:'center'}}>
+                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'60%',justifyContent:'center'}}>
                                                     Rs{it.rate}/{Object.keys(it).length===4?"PIECE":"Kg"}
                                             </div>
                                         </div>
@@ -145,12 +145,12 @@ const other=[{link:"carr",data:"CAR",rate:"20000",pic:"1"},
                         <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',gap:'10%',width:'100%'}}>
                         { mob.map(it=>  
                             <div className='list'>
-                                    <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                                    <div style={{width:'clamp(60px,76.5%,98px)',display:'flex',alignItems:'center',justifyContent:'center'}}>
                                         <div style={{display:'flex',width:'92.5%',height:'100%',borderRadius:'10px',flexDirection:'column',backgroundColor:'whitesmoke',boxShadow:'3px 2.5px 3px 3px gray'}}>
                                             <div style={{display:'flex',height:'75%',alignItems:'center',justifyContent:'center'}}>
                                                 <img style={{width:'45%',height:'45%',objectFit:'fill'}} src={require(`../mobiles/${it.link}.png`)}  loading='lazy' />
                                             </div>
-                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'70%',justifyContent:'center'}}>
+                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'60%',justifyContent:'center'}}>
                                                     Rs{it.rate}/{Object.keys(it).length===4?"PIECE":"Kg"}
                                             </div>
                                         </div>
@@ -170,12 +170,12 @@ const other=[{link:"carr",data:"CAR",rate:"20000",pic:"1"},
                         <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',gap:'10%',width:'100%'}}>
                         { other.map(it=>  
                             <div className='list'>
-                                    <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                                    <div style={{width:'clamp(60px,76.5%,98px)',display:'flex',alignItems:'center',justifyContent:'center'}}>
                                         <div style={{display:'flex',width:'92.5%',height:'100%',borderRadius:'10px',flexDirection:'column',backgroundColor:'whitesmoke',boxShadow:'3px 2.5px 3px 3px gray'}}>
                                             <div style={{display:'flex',height:'75%',alignItems:'center',justifyContent:'center'}}>
                                                 <img style={{width:'45%',height:'45%',objectFit:'fill'}} src={require(`../mobiles/${it.link}.png`)}  loading='lazy' />
                                             </div>
-                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'70%',justifyContent:'center'}}>
+                                            <div style={{display:'flex',flexGrow:'25%',color:'#2dc937',fontSize:'60%',justifyContent:'center'}}>
                                                     Rs{it.rate}/{Object.keys(it).length===4?"PIECE":"Kg"}
                                             </div>
                                         </div>

@@ -27,17 +27,21 @@ export const Payment=()=>{
             </div>
             <div style={{display:'flex',flexDirection:'column',flexGrow:2}}> 
                 {data.map(it=>
-                    <div id={it.id} 
-                    style={{display:'flex',flexDirection:'column',flexGrow:1,rowGap:15,pointerEvents:it.id==='wallet'?'none':'auto'}}
-                    onClick={(e)=>{
-                        e.preventDefault();
-                        loc.state.paymentmode=e.currentTarget.id;
-                        console.log(loc.state);   
-                    }}
+                    <div
+                    style={{display:'flex',flexDirection:'column',flexGrow:1,rowGap:15,
+                    pointerEvents:it.id==='wallet'?'none':'auto'}}
                     >
                     <div>{it.heading}</div>
                     <div style={{display:'flex'}}>
-                        <button style={{width:'75%',alignItems:'center',display:'flex',gap:"7.5%"}}>
+                        <button  id={it.id}  style={{width:'75%',alignItems:'center',display:'flex',gap:"7.5%",backgroundColor:'whitesmoke',cursor:'pointer'}} onClick={(e)=>{
+                            e.preventDefault();
+                            if(loc.state.hasOwnProperty("paymentmode")){
+                                document.getElementById(loc.state.paymentmode).style.backgroundColor="whitesmoke";
+                            }
+                            document.getElementById(it.id).style.backgroundColor="#586132";
+                            loc.state.paymentmode=it.id;   
+                        }
+                        }>
                           <span style={{display:'flex',flexbasis:'40%'}}>
                             <div style={{height:'max(5vw,5vh)',width:'max(5vw,5vh)',maxHeight:'33px',maxWidth:'30px',
                             float:'left',justifyContent:'center',display:'flex',alignItems:'flex-end',padding:'15%'}} >
