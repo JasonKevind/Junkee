@@ -44,23 +44,32 @@ export const OrderList = () => {
     };
     const fetchScheduledData =async (selectedDate,method,sep) => {
         const sel = months[selectedDate.getMonth()] + " " + selectedDate.getDate() +sep+ selectedDate.getFullYear();
-        const data=[]
+        const datum=[]
         const q=collection(db,"clients")
         const ans=await getDocs(q);
         if(ans.docs.length){
         ans.docs.forEach(each=>{
             if(each.data().hasOwnProperty("orders")){
-                each.data().orders.forEach(dt=>{
-                    if(dt[method]==sel){
-                        data.push({...dt,name:each.data().name,
-                contact:each.data().contact,address:each.data().address,
-                            pincode:each.data().pincode});
+                each.data().orders.forEach(order=>{
+                    if(order[method]===sel){
+                        var hmap={...order}
+                        if(!order.hasOwnProperty("add1")){hmap["add1"]=order["address"];}
+                        
+                        hmap.name=each.data().name;
+                        hmap.contact=each.data().contact;
+                        datum.push(hmap);
+                    
                     }
                 })
             }
-        })}
-        (sep===", ")?setSch(data):setPick(data);
+        })
+
         
+    }
+    (datum.length)?
+    ((method==="sch")?setSch(datum):setPick(datum))
+    :
+    ((method==="sch")?setSch([]):setPick([]))
     }
     const handleDateChange = (selectedDate) => {
         setToday(selectedDate);
@@ -92,14 +101,13 @@ export const OrderList = () => {
                 </div>
                 <div style={{ display: 'flex', flexDirection: "column", gap: 20, justifyContent: 'center' }}>
                    {sch.length?(
-                    sch.map((it,id)=>(
+                    sch.map((it)=>(
                        <>
                        <div style={{cursor:'pointer'}} onClick={(e)=>{document.getElementById(it.contact+it.paymentid+"").showModal()}}>{it.name}</div>
                        <dialog style={{border:'none',borderRadius:'7.5px',backgroundColor:'grey'}} id={it.contact+it.paymentid+""}>
                             <h3>{it.name}</h3>
                             <p>Contact : {it.contact}</p>
-                            <p>Address : {it.address}</p>
-                            <p>Pincode : {it.pincode}</p>
+                            <p>Address : {it.add1}</p>
                             <p>Time : {it.time}</p>
                             <p>PaymentMode : {it.paymentmode}</p>
                             <p>ID : {it.paymentid}</p>
@@ -136,14 +144,13 @@ export const OrderList = () => {
                 </div>
                 <div style={{ display: 'flex', flexDirection: "column", gap: 20, justifyContent: 'center' }}>
                    {pick.length?(
-                    pick.map((it,id)=>(
+                    pick.map((it)=>(
                        <>
                        <div style={{cursor:'pointer'}} onClick={(e)=>{document.getElementById(it.paymentid+it.contact+"").showModal()}}>{it.name}</div>
                        <dialog style={{border:'none',borderRadius:'7.5px',backgroundColor:'grey'}} id={it.paymentid+it.contact+""}>
                             <h3>{it.name}</h3>
                             <p>Contact : {it.contact}</p>
-                            <p>Address : {it.address}</p>
-                            <p>Pincode : {it.pincode}</p>
+                            <p>Address : {it.add1}</p>
                             <p>Time : {it.time}</p>
                             <p>PaymentMode : {it.paymentmode}</p>
                             <p>ID : {it.paymentid}</p>

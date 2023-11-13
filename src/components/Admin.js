@@ -57,8 +57,7 @@ export const Admin=()=>{
                    </div>
                    <div style={{display:'flex',flexDirection:'column',alignItems:'center',flexBasis:'50%',maxWidth:'65px',maxHeight:'85px'}} onClick={(e)=>{
                         e.preventDefault();
-                        window.scrollTo({top:document.documentElement.scrollHeight,
-                            behavior:'smooth'});
+                        nav("/Address",{state:{name:loc.state.name,contact:loc.state.contact}})
                     }} >
                       <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
                         <img src={require("./AdminImages/address.png")} style={{objectFit:'fill',width:'25%',height:'55%',maxWidth:'25px'}}/>

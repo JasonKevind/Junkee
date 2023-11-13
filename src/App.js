@@ -19,6 +19,7 @@ import { WorkProcess } from './components/WorkProcess';
 import { useEffect, useState } from 'react';
 import { Aadmin } from './components/Aadmin';
 import { OrderList } from './components/OrderList';
+import { Address } from './components/Address.js';
 function App(){
  useEffect(()=>{
   window.addEventListener("error",(e)=>{
@@ -71,6 +72,7 @@ function App(){
         <Route path="/Aadmin" element={<Aadmin/>} />
         <Route path="/OrderList" element={<OrderList/>} />
         <Route path="/Own" element={<Own/>} />
+        <Route path="/Address" element={<Address />} />
       </Routes>
    <Footer/>
    </>

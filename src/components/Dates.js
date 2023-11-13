@@ -10,31 +10,48 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 export const Dates=()=>{
+
+    const loc=useLocation();
+    const nav=useNavigate();
+    useEffect(()=>{
+      if(!loc.state|| Object.keys(loc.state).length<2){
+          nav("/");
+      }
+  },[loc.pathname])
+  useEffect(()=>{
+      if(!loc.state|| Object.keys(loc.state).length<2){
+          nav("/");
+      }
+  },[!loc.state])
   const third=[{veh:"motorbike" ,text:"From 01kg to 05kg",id:1},
   {veh:"tricycle",text:"From 06kg to 10kg",id:2},
   {veh:"mini-truck",text:"More than 10 kg",id:3}
 ]  
-  const loc=useLocation();
-    const nav=useNavigate();
-    useEffect(()=>{
-      if(!loc.state || Object.keys(loc.state).length<2)
-        {nav("/")}
-    },[loc.pathname])
    const [confirm,setConfirm]=useState(false);
    const [add,setAdd]=useState();
+   const fetchData=async()=>{
+    const q=query(collection(db,"clients"),where("contact","==",loc.state.contact))
+    const ans=await getDocs(q);
+    if(ans.docs[0].data().prevAddress && ans.docs[0].data().prevPincode){
+      setAdd(ans.docs[0].data().prevAddress+", "+ans.docs[0].data().prevPincode);
+    } 
+  }
    useEffect(()=>{
     if(confirm){
-      const fetchData=async()=>{
-        const q=query(collection(db,"clients"),where("contact","==",loc.state.contact))
-        const ans=await getDocs(q);
-        if(ans.docs[0].data().address){
-          setAdd(ans.docs[0].data().address);
-        }
-        
+      if(loc.state.hasOwnProperty("address")){
+        setAdd(loc.state.address);
       }
+      else{
       fetchData();
     }
+    }
    },[confirm])
+   useEffect(()=>{
+    (loc.state && Object.keys(loc.state).length>=2)?
+    fetchData()
+    :
+    nav('/');
+   },[loc.pathname])
    const [data,setData]=useState({"weig":"","time":"","datz":""}); 
    const times=["06 PM To 09 PM","03 PM To 06 PM","12 AM To 03 PM","09 AM To 12 AM"];
     const [selectDate,setSelectDate]=useState({"weig":"","time":"","datz":"",number:loc.state && loc.state.hasOwnProperty("number")?loc.state.number:""})
@@ -76,16 +93,10 @@ export const Dates=()=>{
          
           for(const key in selectDate){
             if(key==="number")break;
-            //selectDate[key]=document.getElementById(key+selectDate[key]).textContent;
             data[key]=document.getElementById(key+selectDate[key]).textContent;
           }
           document.getElementById("prob").style.display='none';
           setConfirm(true);
-          /* nav("/Payment",{state:{name:loc.state.name,
-            contact:loc.state.contact,
-            weig:data["weig"],datz:data["datz"],
-            time:data["time"]
-          }})*/
         } 
     }
     
@@ -168,12 +179,7 @@ export const Dates=()=>{
                     <div style={{display:'flex',flexBasis:'45%',justifyContent:'flex-end'}}>
                       <p style={{textDecoration:'underline',cursor:'pointer'}} onClick={(e)=>{
                         e.preventDefault();
-                        const add2=prompt("Enter address to be picked up from...");
-                        if(add2){
-                          data["add1"]=add2;
-                          setAdd(add2);
-                        }
-                       
+                        nav("/Address",{state:{...loc.state,...data}});
                       }}>Change</p>
               
                     </div>
@@ -182,10 +188,7 @@ export const Dates=()=>{
                 <div style={{display:'flex',justifyContent:'center',padding:5}}>
                         <button style={{width:'40%',height:'clamp(26px,4.3vh,40px)',background:'gold',border:'none',cursor:'pointer',borderRadius:'5px'}} onClick={async(e)=>{
                           e.preventDefault();
-                          
-                          (Object.keys(data).length===3)?
-                          nav("/Payment",{state:{add1:add,name:loc.state.name,contact:loc.state.contact,...data}}):
-                          nav("/Payment",{state:{name:loc.state.name,contact:loc.state.contact,...data}})
+                          nav("/Payment",{state:{add1:add,...loc.state,...data}})
                         }}>Confirm</button>
                     </div>
                 </div>

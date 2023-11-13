@@ -296,8 +296,10 @@ border-radius:25px;display:flex;
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
+.otp{display:flex;width:clamp(30px,5vh,45px);font-size: 100%;text-align: center;
+  height:clamp(30px,5vh,45px)}
 .md1>div>a,.md2>div>a{text-decoration: none;color: white;}
+#address>div:nth-child(1)>h4{text-align: center;}
 @media (min-width:280px) and (max-width:600px) {
     #dates{height: clamp(200px,83vh,570px);width:clamp(200px,80vw,355px);}
   .counter-container{flex-direction: column;align-items: center;margin-bottom: 10%;}

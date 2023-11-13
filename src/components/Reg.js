@@ -36,12 +36,15 @@ export const Reg=()=>{
                 userData["name"]=document.getElementById("input1").value;
                 if(document.getElementById("input2").value.length){
                 userData["upiid"]=document.getElementById("input2").value;}
-                userData["address"]=document.getElementById("input3").value;
+                userData["address"]={}
+                userData["address"][document.getElementById("input3").value+", "+document.getElementById("input5").value]=true;
+                userData["prevAddress"]=document.getElementById("input3").value;
+                userData["prevPincode"]=document.getElementById("input5").value;
                 if(document.getElementById("input4").value.length>10 
                 && document.getElementById("input4").value.substring(document.getElementById("input4").value.length-10,
                 document.getElementById("input4").value.length)==="@gmail.com")
                 {userData["emailid"]=document.getElementById("input4").value};
-                userData["pincode"]=parseInt(document.getElementById("input5").value);
+                userData["pincode"]=document.getElementById("input5").value;
                 userData["contact"]=loc.state.number;
                 userData["orders"]=[];
                 const ans=await addDoc(collection(db,"clients"),userData).catch(err=>{

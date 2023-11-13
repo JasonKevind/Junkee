@@ -9,7 +9,6 @@ import { useEffect,  useState } from 'react';
 export const Schedule=()=>{
     const loc=useLocation();
     const nav=useNavigate();
-    const [obj,setObj]=useState(false);
     useEffect(()=>{
         if(loc.pathname==="/" && loc.state && Object.keys(loc.state).length===2 && loc.state.hasOwnProperty("contact"))document.getElementById("number").value=loc.state.contact;
     },[loc.pathname])
@@ -27,12 +26,15 @@ export const Schedule=()=>{
     </div>
     <div style={{flexGrow:3,justifyContent:'space-evenly',display:'flex',flexDirection:'column'}}>
         <div><h4 style={{margin:0,fontFamily:"Inter"}}>MOBILE</h4></div>
-        <div ><input placeholder='10 digit Indian Contact Number' id='number' type='number' style={{border:'none',padding:'7px',width:'80%'}} inputMode='numeric'/></div>
+        <div>
+        <input placeholder='10 digit Indian Contact Number' id='number' type='number' style={{border:'none',padding:'7px',width:'80%'}} inputMode='numeric'/>
+        </div>
     </div>
     <div style={{flexGrow:1,display:'flex',flexDirection:'column'}}>
-        { !obj && (<div><div id='recaptcha-container' />
+        <div><div id='recaptcha-container' />
         <button className='btnew' style={{width:90,padding:7.5}} onClick={async(e)=>{
            try{
+           
             let dd=document.getElementById("number").value;
             if(dd.length===10 && check(dd)){
         
@@ -50,20 +52,20 @@ export const Schedule=()=>{
             }
             else{nav("/Reg",{state:{number:dd}})}
           }).catch(error=>{
-            alert(error);window.location.reload();
+          alert("May be wrong otp, try again");
           })
         }  
            else{
             alert('Enter valid phone number of length 10')
            }
-           }catch{
+           }catch(error){
             alert("You might have placed more than 8 orders, please try with another number...")
             window.location.reload();   
         }
         }}
            >NEXT</button>
-        </div>)
-    }
+        </div>
+    
         <Problems />
     </div>
 </div>
