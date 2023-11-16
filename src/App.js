@@ -46,10 +46,17 @@ function App(){
       document.getElementById("root").style.display="flex";
       document.getElementById("disp").innerText="";
     }
-  
   },[]);
 },[])
+const pin=(el)=>{
+  for(var i=0;i<el.length;i++){
 
+      if(el[i]<"0" || el[i]>"9")
+      {alert("Enter a valid pincode");
+      return false;}
+  }
+  return true;
+}
   return (
    <>
     <Gabe/>

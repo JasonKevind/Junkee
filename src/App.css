@@ -165,7 +165,6 @@ flex-direction: column;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
 }
 .RD button, .dropbtn {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -198,7 +197,12 @@ flex-direction: column;
   max-height: 180vh;padding: 3%;
 }
 .form>div:nth-child(1){display: flex;flex-direction: column;}
-.btnew{background-color:#3AB34A;border: none;box-shadow: 4px 5px 12px #4d7814;color:white}
+.btnew{background-color:#3AB34A;border: none;box-shadow: 4px 5px 12px #4d7814;
+  color:white;cursor: pointer;transition: 0.3s;}
+.btnew:active{
+  transition: 0.3s;
+  background-color: #586132;
+}
 #otp{
 width: 100%;height:30vh;
 }
@@ -371,7 +375,6 @@ border-radius:25px;display:flex;
 .dates{
   width:70%;
 }
-/* Styles for the custom calendar */
 .custom-calendar {
   display: inline-block;
   border: 1px solid #ccc;
@@ -414,15 +417,12 @@ border-radius:25px;display:flex;
   color: white;
   font-weight: bold;
 }
-
-/* Styles for disabled dates */
 .custom-day.disabled {
   background-color: #eee;
   color: #888;
   cursor: not-allowed;
 }
 
-/* Add more custom styles or override existing styles as needed */
 
 @media screen and (-webkit-min-device-pixel-ratio:0 ){
 #h1{
